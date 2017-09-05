@@ -234,7 +234,7 @@ db.dropDatabase();
 如果是在当前me下则会孩子接删除
 否则db.dropDatabase(me);
 
-<h2 id="dataType"></h2>
+<h2 id="dataType" style="color:blue">MongoDB数据类型简述</h2>
 
 
 
