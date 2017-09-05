@@ -2,6 +2,7 @@
 - [MongoDB概述](#Sketch)
 - [windows安装](#WindowsDL)
 - [初识MongoShell](#startMongoShell)
+- [MongoDB数据类型简述](#data)
 <h2 id="Sketch" style="color:blue">MongoDB 简述</h2>
 
 ### 1、计算机数据库的发展史
