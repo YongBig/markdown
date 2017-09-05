@@ -237,13 +237,37 @@ db.dropDatabase();
 <h2 id="dataType" style="color:blue">MongoDB数据类型简述</h2>
 
 
+----------
+### 1、简述
+Mongo的数据类型类似于json，json是简单的数据局表达形式。
 
+json的数据类型：
 
+|  类型	   | 介绍     |
+| --- | --- |
+|    NULL | 空     |
+|    Boolean |  true、false     |
+|    String | 字符串    |
+|  Array  | [1,2,3,4]    |
+|   Object  | {"name":"dy"}     |
+|    Number | 1 、2、3     |
 
-
-
-
+  MongoDB数据类型
   
+
+|   类型  | 介绍     |
+| --- | --- |
+|  Null   | 空    |
+|    Boolean | true、false    |
+|  String   | 字符串    |
+|    Date 日期 | 使用的是JavaScript的new Date()    |
+|    regular expression | 正则表达式    |
+|   Array | 在Javascript中Array==Object    |
+|    内嵌文档 | {a:{b:{c:'你的名字'}}}     |
+|    Object |{name:"你的宝贝"}     |
+|    二进制数组 |     |
+|    Code | 代码（可将存储过程代码存储）    |
+|   内部  | _Id 即ObjectId 自动生成的Id     |
 
 
 
