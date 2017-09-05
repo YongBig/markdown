@@ -1,6 +1,6 @@
 # MongoDB整理
 - [MongoDB概述](#Sketch)
-- [windows安装](#windows)
+- [windows安装](#WindowsDL)
 - [初识MongoShell](#startMongoShell)
 <h2 id="Sketch" style="color:blue">MongoDB 简述</h2>
 
