@@ -273,5 +273,7 @@ json的数据类型：
 
 <h2 style="color:blue" id="baseShell'> 深入基础命令</h2>
 
+### 1、insert
+
 
 
