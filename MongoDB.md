@@ -1,9 +1,10 @@
 # MongoDB整理
-- [MongoDB概述](#Sketch)
-- [windows安装](#WindowsDL)
-- [初识MongoShell](#startMongoShell)
-- [MongoDB数据类型简述](#dataType)
-	- a
+ - [MongoDB概述](#Sketch)
+ - [windows安装](#WindowsDL)
+ - [初识MongoShell](#startMongoShell)
+ - [MongoDB数据类型简述](#dataType)
+ - [ 深入基础命令](#baseShell)
+
 <h2 id="Sketch" style="color:blue">MongoDB 简述</h2>
 
 ### 1、计算机数据库的发展史
@@ -263,7 +264,7 @@ json的数据类型：
 |    Date 日期 | 使用的是JavaScript的new Date()    |
 |    regular expression | 正则表达式    |
 |   Array | 在Javascript中Array==Object    |
-|    内嵌文档 | {a:{b:{c:'你的名字'}}}     |
+|    内嵌文档 | {a:{b:{c:“你的名字”}}}     |
 |    Object |{name:"你的宝贝"}     |
 |    二进制数组 |     |
 |    Code | 代码（可将存储过程代码存储）    |
