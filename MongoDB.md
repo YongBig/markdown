@@ -229,7 +229,7 @@ db.me.remove({"id":Object(xxxxx)})
 8、删除库
 
 ``` stylus
-db.dropDatabase();
+db. 表名.dropDatabase();
 ```
 ==注意：==
 如果是在当前me下则会孩子接删除
@@ -273,7 +273,11 @@ json的数据类型：
 
 <h2 style="color:blue" id="baseShell'> 深入基础命令</h2>
 
-### 1、insert
+### 1、insert 插入
+
+示例条件： Mongo数据库下，有me库，me库中有集合a表。
+
+
 
 
 
