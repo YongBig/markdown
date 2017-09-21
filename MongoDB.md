@@ -334,5 +334,18 @@ load("c:/data/shell/insert.js")
 1>、updata $set
 这里我要修改 name = susan 中age为18
 
+==注意错误用法 写成关系型数据库的写法==
+代码为：
+
+``` stylus
+//连接数据库
+var db = connect("study")
+
+//关系型数据库写法
+db.user.update({
+	"name":"susan"
+},{"age":18});
+```
+
 
 
