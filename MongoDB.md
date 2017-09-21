@@ -271,7 +271,7 @@ json的数据类型：
 |   内部  | _Id 即ObjectId 自动生成的Id     |
 
 
-<h2 id="baseShell" style="color:blue"> 升入基础命令</h2>
+<h2 id="baseShell" style="color:blue"> 深入基础命令</h2>
 
 
 ### 1、insert 插入
