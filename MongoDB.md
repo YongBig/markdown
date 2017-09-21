@@ -282,7 +282,7 @@ json的数据类型：
 ### 2、update修改器
 
 示例条件：
-
+创建insert.js的文件
 ``` stylus
 var user1={
 	"name":"susan",
@@ -325,6 +325,14 @@ var db = connect('study');//连接study的库
 db.user.insert([user1,user2,user3]);//在user的文档集合中插入三个值
 print(''[ok] the data was inserted sucessfully')
 ```
+在mogondb中载入这个js文件
+
+``` stylus
+//执行外部shell命令，这里的地址根据自己真实地址而填写
+load("c:/data/shell/insert.js")
+```
+1>、updata $set
+这里我要修改 name = susan 中age为18
 
 
 
