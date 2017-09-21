@@ -277,6 +277,27 @@ json的数据类型：
 
 示例条件： Mongo数据库下，有me库，me库中有集合a表。
 
-# baidu
+<未完成>
+
+### 2、update修改器
+
+示例条件：
+
+``` stylus
+var user1={
+	"name":"susan",
+	"age":22,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		“address”:"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+	
+}
+```
+
 
 
