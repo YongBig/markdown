@@ -427,4 +427,6 @@ true //mongo返回的说明成功
 这样就会得到示例中想要的结果
 {”_id“:ObjectId,"name":"susan","age":18,"sex":1,"del":{"province":"江苏"，"city":"南京",“address”:"江苏省苏州市姑苏区道前街18号"},"regeditTime":new Date()}
 
+<span style="color:red">但是这样却很繁琐,所以就要用到我们的修改器$set拉，请接着看</span>
+
 
