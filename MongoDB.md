@@ -334,7 +334,7 @@ load("c:/data/shell/insert.js")
 1>、updata 
 这里我要修改 name = susan 中age为18
 
-==注意第一种用法 写成关系型数据库的写法==
+==（1）、注意第一种用法 写成关系型数据库的写法==
 代码为：
 新建update.js的文件
 ``` stylus
@@ -358,7 +358,7 @@ true //mongo返回的说明成功
 {”_id“:ObjectId,"age":18}
 其他数据消失了所以注意，文档型数据库我们的这样子的修改会覆盖整个文档。而不是更新其中的某一个字段。
 
-==第二种用法==
+==（2）、第二种用法==
 
 新建update.js的文件
 ``` stylus
@@ -395,7 +395,7 @@ true //mongo返回的说明成功
 
 这样的修改会变为内嵌文档，变量名会变为其中的key字段，其他则变为他的内嵌文档。
 
-==获取示例结果的方法==
+==（3）、获取示例结果的方法==
 新建update.js的文件
 ``` stylus
 //连接数据库
@@ -424,6 +424,7 @@ load.user("c:/data/shell/update.js")
 
 true //mongo返回的说明成功
 ```
-
+这样就会得到示例中想要的结果
+{”_id“:ObjectId,"name":"susan","age":18,"sex":1,"del":{"province":"江苏"，"city":"南京",“address”:"江苏省苏州市姑苏区道前街18号"},"regeditTime":new Date()}
 
 
