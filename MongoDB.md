@@ -295,8 +295,35 @@ var user1={
 		“address”:"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
-	
 }
+var user2={
+	"name":"ddy",
+	"age":22,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		“address”:"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+}
+var user3={
+	"name":"xdy",
+	"age":22,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		“address”:"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+}
+
+var db = connect('study');//连接study的库
+db.user.insert([user1,user2,user3]);//在user的文档集合中插入三个值
+print(''[ok] the data was inserted sucessfully')
 ```
 
 
