@@ -271,7 +271,11 @@ json的数据类型：
 |   内部  | _Id 即ObjectId 自动生成的Id     |
 
 
-<h2 id="baseShell" style="color:blue"> 深入基础命令</h2>
+<h2 id="baseShell" style="color:blue"> 深
+
+
+
+入基础命令</h2>
 
 
 ### 1、insert 插入
@@ -333,6 +337,7 @@ print(''[ok] the data was inserted sucessfully')
 load("c:/data/shell/insert.js")
 ```
 1>、updata 
+
 这里我要修改 name = susan 中age为18
 
 ==（1）、注意第一种用法 写成关系型数据库的写法==
