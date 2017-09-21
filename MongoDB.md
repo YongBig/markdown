@@ -331,12 +331,12 @@ print(''[ok] the data was inserted sucessfully')
 //执行外部shell命令，这里的地址根据自己真实地址而填写
 load("c:/data/shell/insert.js")
 ```
-1>、updata $set
+1>、updata 
 这里我要修改 name = susan 中age为18
 
-==注意错误用法 写成关系型数据库的写法==
+==注意第一种用法 写成关系型数据库的写法==
 代码为：
-
+新建update.js的文件
 ``` stylus
 //连接数据库
 var db = connect("study")
@@ -345,6 +345,84 @@ var db = connect("study")
 db.user.update({
 	"name":"susan"
 },{"age":18});
+```
+mogoshell中输入
+
+``` stylus
+//载入shell
+load.user("c:/data/shell/update.js")
+
+true //mongo返回的说明成功
+```
+结果我们发现我们的数据库却不是我们想要的结果那条数据变为：
+{”_id“:ObjectId,"age":18}
+其他数据消失了所以注意，文档型数据库我们的这样子的修改会覆盖整个文档。而不是更新其中的某一个字段。
+
+==第二种用法==
+
+新建update.js的文件
+``` stylus
+//连接数据库
+var db = connect("study")
+
+var user1={
+	"name":"susan",
+	"age":18,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		“address”:"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+}
+
+//直接写变量名
+db.user.update({
+	"name":"susan"
+},{user1});
+```
+mogoshell中输入
+``` stylus
+//载入shell
+load.user("c:/data/shell/update.js")
+
+true //mongo返回的说明成功
+```
+结果该文档的结构却变为：
+{”_id“:ObjectId,“user1”:{"name":"susan","age":18,"sex":1,"del":{"province":"江苏"，"city":"南京",“address”:"江苏省苏州市姑苏区道前街18号"},"regeditTime":new Date()}}
+
+这样的修改会变为内嵌文档，变量名会变为其中的key字段，其他则变为他的内嵌文档。
+
+==获取示例结果的方法==
+新建update.js的文件
+``` stylus
+//连接数据库
+var db = connect("study")
+
+//直接写如完整的文档片段
+db.user.update({
+	"name":"susan"
+},{
+	"name":"susan",
+	"age":18,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		“address”:"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+});
+```
+mogoshell中输入
+``` stylus
+//载入shell
+load.user("c:/data/shell/update.js")
+
+true //mongo返回的说明成功
 ```
 
 
