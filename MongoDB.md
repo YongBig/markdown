@@ -297,7 +297,7 @@ var user1={
 	{
 		"province":"江苏"，
 		"city":"南京",
-		“address”:"江苏省苏州市姑苏区道前街18号"
+		"address":"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
 }
@@ -309,7 +309,7 @@ var user2={
 	{
 		"province":"江苏"，
 		"city":"南京",
-		“address”:"江苏省苏州市姑苏区道前街18号"
+		"address":"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
 }
@@ -321,7 +321,7 @@ var user3={
 	{
 		"province":"江苏"，
 		"city":"南京",
-		“address”:"江苏省苏州市姑苏区道前街18号"
+		"address":"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
 }
@@ -379,7 +379,7 @@ var user1={
 	{
 		"province":"江苏"，
 		"city":"南京",
-		“address”:"江苏省苏州市姑苏区道前街18号"
+		"address":"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
 }
@@ -418,7 +418,7 @@ db.user.update({
 	{
 		"province":"江苏"，
 		"city":"南京",
-		“address”:"江苏省苏州市姑苏区道前街18号"
+		"address":"江苏省苏州市姑苏区道前街18号"
 	},
 	"regeditTime":new Date()
 });
@@ -434,5 +434,77 @@ true //mongo返回的说明成功
 {”_id“:ObjectId,"name":"susan","age":18,"sex":1,"del":{"province":"江苏"，"city":"南京",“address”:"江苏省苏州市姑苏区道前街18号"},"regeditTime":new Date()}
 
 <span style="color:red">但是这样却很繁琐,所以就要用到我们的修改器$set拉，请接着看</span>
+
+ 2>、update （$set）修改器
+ ==what?修改一个指定的键值（key）==
+举例：
+
+``` stylus
+db.user.update({
+	"name":"susan"
+},{
+	"$set":
+	{
+		"sex":0
+	}
+})
+```
+mogonDB中susan的那条数据中只修改了sex那条数据，其它的保持不变。
+
+``` stylus
+{
+	"name":"susan",
+	"age":18,
+	"sex":0,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		"address":"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+}
+```
+拓展：
+如何修改内嵌文档
+举例：修改del下的内嵌文档
+``` stylus
+{
+	"name":"susan",
+	"age":18,
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		"address":"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()
+}
+```
+修改方法：
+
+``` stylus
+db.user.update({
+	"name":"susan"
+},{
+	"$set":{
+			"del.city":'南通'
+	}
+})
+```
+3>、update（$unset）
+==what?用于将指定的key删除==
+举例：删除susan 的age
+
+``` stylus
+db.user.update({
+	"name":"susan"
+},{
+	"$unset":{
+			"age":""//官方推荐删除的赋值直接写空就可以了
+	}
+})
+```
 
 
