@@ -693,4 +693,48 @@ db.user.update({
 （5）、$pop 
 ==waht: 两个值  为1时 数组末端删除，为-1数组头部删除==?
 举例：
+``` stylus
+db.user.update({
+    "name":"John",
+},{
+	"$pop":{
+	"comment":1//删除comment中的700
+}
+})
+```
+（6）、直接定位数组
+举例：
+修改comment下的第3个数值
+``` stylus
+db.user.update({
+    "name":"John",
+},{
+	"$set":{
+	"comment.2":"aaa"
+}
+})
+```
+（7）、不确定匹配数组
+举例：
 
+``` stylus
+var friend = {
+	"user":"Dy",
+	"list":[
+		{
+			"name":"John",
+			"e-mail":"John@gmail.com"
+		},
+		{
+			"name":"susan",
+			"e-mail":"susan@gmail.com"
+		},
+		{
+			"name":"solid",
+			"e-mail":"solid@gmail.com"
+		}
+	]
+}
+
+db.friend.insert(friend)
+```
