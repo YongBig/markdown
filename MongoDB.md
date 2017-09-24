@@ -674,7 +674,8 @@ db.user.update({
 ```
 （4）、$each批处理
 ==what？追加数组/内联文档 到 数组/内联文档==
-
+举例：
+为comment数组追加500，600，700
 ``` stylus
 db.user.update({
     "name":"John",
@@ -686,3 +687,10 @@ db.user.update({
 }
 })
 ```
+执行后结果：
+`{"_id":ObjectId("788768zdfzfzxfzXXXXXX"),"name":"john","comment":["100","100"，"300","200",500,600,700]}`
+
+（5）、$pop 
+==waht: 两个值  为1时 数组末端删除，为-1数组头部删除==?
+举例：
+
