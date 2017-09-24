@@ -116,6 +116,7 @@ mongod --bind_ip 127.0.0.1 --logpath %MONGODB_HOME%logsmongodb.log --logappend -
 
 <span style="color:red">注意:</span>
 补充指令：
+
 |参数|描叙|
 | -------------------- | ----------------------------------------------------------------- |
 | --bind_ip            | 绑定服务IP，若绑定127.0.0.1，则只能本机访问，不指定默认本地所有IP |
