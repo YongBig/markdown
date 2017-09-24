@@ -506,5 +506,51 @@ db.user.update({
 	}
 })
 ```
+删除后我们将数据恢复
+如何恢复：
+发现insert 并不合适，那么我们还是用$set来加入。
+``` stylus
+	db.user.update({
+	"name":"susan"
+},{
+	"$set":{
+			"age":18//$set是当没有找到指定的key时，则自动加入指定的key
+	}
+})
+```
+执行后 我们发现age的位置发生了变化变为
+``` stylus
+{
+	"name":"susan",
+	"sex":1,
+	"del":
+	{
+		"province":"江苏"，
+		"city":"南京",
+		"address":"江苏省苏州市姑苏区道前街18号"
+	},
+	"regeditTime":new Date()，
+	"age":"18"
+}
+```
+age放在了最后，那是因为mongoDB是以文档片段形式存储的
 
+4>、$inc 
+==what?对指定的Key的数字类型的value进行计算==
+举例：
+假如susan的age变我们写错了，age为16。
 
+``` stylus
+	db.user.update({
+	"name":"susan"
+},{
+	"$inc":{
+			"age":-2//$inc  为复数则为减，为正数为加
+	}
+})
+```
+<span style="color:red">**注意！！！！执行后我们发现为错误**。</span>
+
+原因：我们在学习$unset时恢复age数据时，将age回复为字符串的"18"，$inc 只能对数子类型的进行增加修改。
+
+在写mangodb脚本的时，外部执行不知道错误时，我们直接可以把脚本复制带终端，这样错误，就会显示出来。
