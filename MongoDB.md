@@ -554,3 +554,135 @@ age放在了最后，那是因为mongoDB是以文档片段形式存储的
 原因：我们在学习$unset时恢复age数据时，将age回复为字符串的"18"，$inc 只能对数子类型的进行增加修改。
 
 在写mangodb脚本的时，外部执行不知道错误时，我们直接可以把脚本复制带终端，这样错误，就会显示出来。
+
+5>、update 修改添加全部数据
+
+举例：
+假设我们要为每一条数据都要加上comment的数组的记录，那么我们写成
+
+``` stylus
+db.user.update({
+
+},{
+	"$set":{
+		"comment":[]
+	}
+})
+```
+ 执行后我们发现我们只给第一条数据加上了comment，其他后续都没有。
+ ==注意，update只发现第一条数据，并执行相应的修改器后停止。==
+ 如何继续修改全部数据：
+将update方法打印出来我们发现
+
+``` stylus
+//打印update方法
+db.user.update //回车
+//输出了 update的方法
+function(query,obj,upsert,multi){
+..............
+}
+```
+	(1)、query参数时我们的查询条件 
+	(2)、obj 修改器的一些方法
+	(3)、multi  是对象 有true 和false 两个值，为true时查询所有数据并修改，默认值为false，修改查询到的第一条数据及停止
+举例：
+
+``` stylus
+db.user.update({
+
+},{
+	"$set":{
+		"comment":[]
+	}
+},{
+	"multi":true
+})
+```
+	(4)、upsert  对象两个参数 为true时，如果没有找到则新建，为false（默认）找不到则结束。
+
+举例：
+
+``` stylus
+db.user.update({
+    "name":"John"
+},{
+	"$set":{
+		"comment":[]
+	}
+},{
+	"upsert":true
+})
+```
+6>、数组修改器
+	（1）、$push 追加数据到数据最后。
+	举例：
+``` stylus
+	db.user.update({
+    "name":"John"
+	},{
+		"$push":{
+			"comment":"100"
+		}
+	})
+```
+执行则john那条数据则变更为:
+`{"_id":ObjectId("788768zdfzfzxfzXXXXXX"),"name":"john","comment":["100"]}`
+再次执行
+`{"_id":ObjectId("788768zdfzfzxfzXXXXXX"),"name":"john","comment":["100","100"]}`
+==拓展：==
+内联文档与数组，其实都时一样，那么我们可以在内联文档中使用数组的一些修改器。
+举例：
+给susan的del增加一条邮编上去。
+
+``` stylus
+	db.user.update({
+    "name":"susan"
+	},{
+		"$push":{
+			"del.zip":"10101010"
+		}
+	})
+```
+（2）、$ne
+==what:查找是否存在，如果不存在，则执行修改器中的方法==
+举例：
+查找John 中 comment数据中是否有"200",没有的话加入"300"
+
+``` stylus
+db.user.update({
+    "name":"John",
+	"comment":{"$ne":"200"}
+	},{
+		"$push":{
+			"comment":"300"
+		}
+	})
+```
+<span style="color:red">注意是没有</span>
+
+（3）、$addToSet
+==what?查找是否存在，不存在添加（新版本替代$ne）==
+举例：
+``` stylus
+db.user.update({
+    "name":"John",
+	},{
+		"$addToSet":{
+			"comment":"200"
+		}
+	})
+```
+（4）、$each批处理
+==what？追加数组/内联文档 到 数组/内联文档==
+
+``` stylus
+db.user.update({
+    "name":"John",
+},{
+	"$addToSet":{
+	"comment":{
+		"$each":[500,600,700]
+	}
+}
+})
+```
