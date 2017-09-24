@@ -276,17 +276,38 @@ json的数据类型：
 
 ### 1、insert 插入
 
-示例条件： Mongo数据库下，有log库，log库中有集合asdf.db表。插入数据
+单条插入示例条件： Mongo数据库下，有log库，log库中有集合asdf.db表。插入数据
 
 ``` stylus
 use log//使用log库
 
-db.adsf.db.insert({
-	"a":1
-})
+db.adsf.db.insert({"a":1})//插入数据
 
 ```
 
+批量插入示例条件： Mongo数据库下，有log库，log库中有集合asdf表。批量插入数据
+``` stylus
+use log//使用log库
+
+db.adsf.insert([//回车进入批量insert中
+...{"_id":1}//回车
+...{"_id":2},
+...{"_id":3}
+])//批量插入数据，回车
+BulkWriteResult({
+	"wirteError":[],
+	"writeConcernErrors":[],
+	"nInserted":3,
+	"nUpserted":0,
+	"nMatchet":0,
+	"nModified":0,
+	"nRemoved":0,
+	"upserted":[]
+})
+
+```
+==注意：批量插入必须是在数组中==
+拓展：如果写错了，只需三次回车就会推出
 
 <未完成>
 
