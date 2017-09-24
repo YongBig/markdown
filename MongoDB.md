@@ -294,7 +294,7 @@ db.adsf.insert([//回车进入批量insert中
 ...{"_id":2},
 ...{"_id":3}
 ])//批量插入数据，回车
-BulkWriteResult({
+BulkWriteResult({//返回批处理结果
 	"wirteError":[],
 	"writeConcernErrors":[],
 	"nInserted":3,
