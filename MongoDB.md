@@ -271,16 +271,22 @@ json的数据类型：
 |   内部  | _Id 即ObjectId 自动生成的Id     |
 
 
-<h2 id="baseShell" style="color:blue"> 深
-
-
-
-入基础命令</h2>
+<h2 id="baseShell" style="color:blue"> 深入基础命令</h2>
 
 
 ### 1、insert 插入
 
-示例条件： Mongo数据库下，有me库，me库中有集合a表。
+示例条件： Mongo数据库下，有log库，log库中有集合asdf.db表。插入数据
+
+``` stylus
+use log//使用log库
+
+db.adsf.db.insert({
+	"a":1
+})
+
+```
+
 
 <未完成>
 
@@ -737,4 +743,18 @@ var friend = {
 }
 
 db.friend.insert(friend)
+```
+执行
+ 现在有一个需求 susan改了email 
+ 
+
+``` stylus
+db.friend.update({
+	"name":"Dy",
+	"list.$.name":"susan"//不确定的下标用$代替
+},{
+	"$set":{
+		"list.$.email":"susan@qq.com"
+	}
+})
 ```
