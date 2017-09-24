@@ -295,10 +295,10 @@ db.adsf.insert([//回车进入批量insert中
 ...{"_id":3}
 ])//批量插入数据，回车
 BulkWriteResult({//返回批处理结果
-	"wirteError":[],
-	"writeConcernErrors":[],
-	"nInserted":3,
-	"nUpserted":0,
+	"wirteError":[],//写入错误
+	"writeConcernErrors":[],//写入连接错误
+	"nInserted":3,//插入了多少数据
+	"nUpserted":0,//更新了多少数据
 	"nMatchet":0,
 	"nModified":0,
 	"nRemoved":0,
@@ -306,7 +306,8 @@ BulkWriteResult({//返回批处理结果
 })
 
 ```
-==注意：批量插入必须是在数组中==
+==注意：批量插入必须是在数组中，如果mongoDB版本是在3.23以前
+,批量处理要使用batchInsert才能批量插入==
 拓展：如果写错了，只需三次回车就会推出
 
 <未完成>
