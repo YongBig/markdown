@@ -830,6 +830,8 @@ var tmp = db.runCommand({
 	"remove":{"$ser":{"age":16}},
 	"new":true
 })
+
+printjson(temp)
 ```
 
 
