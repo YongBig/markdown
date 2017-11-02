@@ -814,9 +814,9 @@ use study
 
 db.user.update({"sex":1},{"$set":{"num":999}},false,false)//更新sex为1的文档片段中，设置num为999
 
-var output = db.runCommand({getLastError:1})
+var output = db.runCommand({getLastError:1})//如果有错误获取错误值
 
-printjson(out)//打印json
+printjson(out)//打印为json格式
 ```
 
 
