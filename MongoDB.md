@@ -946,7 +946,9 @@ db.userfind(
 				{"age":{"$lte":30}},
 				{"del.city":"北京"}
 			]
-	}
+	},
+	{"name":1,"age":1,"_id":0}
+
 )
 ```
 
