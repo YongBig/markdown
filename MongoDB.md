@@ -825,13 +825,33 @@ printjson(out)//打印为json格式
 
 ``` stylus
 var tmp = db.runCommand({
-	“findAndModify”:"user",
-	"query":{"name":"dy"},
-	"remove":{"$ser":{"age":16}},
-	"new":true
+	“findAndModify”:"user",//findAndModify这个命令使用早user库中
+	"query":{"name":"dy"},//查询name为dy
+	"update":{"$ser":{"age":16}},//更新他到16
+	"new":true//位true，更新完后反回，false就是更新完后该干嘛干嘛。
 })
 
 printjson(temp)
 ```
+这是用runCommand运行的，当然我们也有findAndModify()的函数。
+
+``` stylus
+findAndModify({
+	//query:<查询文档>,
+	//sort:<"sex":1>，sex为1的排序,
+	//remove:,
+	//update:,
+	//new:,
+	//fields:,
+	//update:,
+	//new:,
+	//fields:,
+	//upsert:,
+	//bypassDocumentValidation:,
+	//writeConcern:,
+	//collation:<document>
+})
+```
+
 
 
