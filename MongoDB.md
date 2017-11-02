@@ -906,12 +906,23 @@ db.user.find(
 //大于 大于等于  $gt、$gte
 //不等于	$ne
 
-//举例
+//举例x>=20,x<=30
 db.user.find(
-{"age":{"$lte":30,"$get":20}},
+{"age":{"$lte":30,"$get":20}},//查询年龄小于等于30，大于等于20的数据
 {"name":1,"age":1,"_id":0}
 )
+
+//查询时间
+start = new Date(01/01/2017")
+db.user.find(
+{"regeditTime":{"$ge":start}},//查询时间大于start的值
+{"name":1,"age":1,"_id":0}
+)
+
 ```
+(3)、$in,$nin查询
+//$in 查询一键多值
+//$nin 查询除了in
 
 
 
