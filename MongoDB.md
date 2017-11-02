@@ -833,7 +833,7 @@ var tmp = db.runCommand({
 
 printjson(temp)
 ```
-这是用runCommand运行的，当然我们也有findAndModify()的函数。
+这是用runCommand运行的，findAndModify模式到底有什么参数。
 
 ``` stylus
 findAndModify({
@@ -850,6 +850,6 @@ findAndModify({
 	//collation:<document>
 })
 ```
-==注意remove与update必须要有一个存在，并且不能共存==
+==注意remove与update必须要有一个存在，并且不能共存,findAndModify的命令效率低于其他直接命令，但是可以有效的保护我们进程，所以==
 
 
