@@ -825,7 +825,10 @@ printjson(out)//打印为json格式
 
 ``` stylus
 var tmp = db.runCommand({
-	“din”
+	“findAndModify”:"user",
+	"query":{"name":"dy"},
+	"remove":{"$ser":{"age":16}},
+	"new":true
 })
 ```
 
