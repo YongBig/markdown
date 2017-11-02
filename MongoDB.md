@@ -882,6 +882,12 @@ db.user.find(
 	{“name”:1,"age":1}//这里的1是true的意思
 )
 ```
+返回
+
+``` stylus
+{ "_id" : ObjectId("59fafffc181d50551c2d4e9f"), "name" : "前进6", "age" : 22 }
+```
+
 
 
 
