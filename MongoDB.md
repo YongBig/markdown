@@ -921,8 +921,8 @@ db.user.find(
 
 ```
 (3)、$in,$nin查询
-//$in 查询一键多值
-//$nin 查询除了in以外的数据
+$in 查询一键多值
+$nin 查询除了in以外的数据
 举例
 ``` stylus
 db.user.find(
@@ -933,6 +933,20 @@ db.user.find(
 db.user.find(
 {"age":{"$nin":[22,38]}},//查询除了年龄是22和38的值
 {"name":1,"age":1,"_id":0}
+)
+```
+(4)、多条件查询
+
+$or 多条件查询
+
+``` stylus
+db.userfind(
+	{"
+		$or":[
+				{"age":{"$lte":30}},
+				{"del.city":"北京"}
+			]
+	}
 )
 ```
 
