@@ -860,5 +860,14 @@ db.runCommand({
 	"ping":1//和服务器连接是否正常
 })
 ```
+### 5、 find查找
+
+1> 、查询条件
+正常查找
+``` stylus
+db.user.find(
+	{"del.city":"天津'}
+)
+```
 
 
