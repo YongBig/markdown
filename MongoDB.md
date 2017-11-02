@@ -114,7 +114,7 @@ EX：
 mongod --bind_ip 127.0.0.1 --logpath %MONGODB_HOME%logsmongodb.log --logappend --dbpath %MONGODB_HOME%data --directoryperdb --auth --install  
 ```
 
-<span style="color:red">注意:</span>
+注意:
 补充指令：
 
 |参数|描叙|
@@ -133,7 +133,7 @@ a.必须切换到bin目录下执行该条指令。
     c.除了“--auth”和“--install”两个参数，别的参数要跟你设置用户时启动服务的参数一致，尤其是“--directoryperdb”。  
     第一次配置完成后，一定要重启才会有效果 重启mongo客户端，不输入-u-p可以直接进入，但是不具有任何权限。正确的访问方式为：mongo 数据库名 -u 用户名 -p。另外设置用户  
 	
-  <h2 id='startMongoShell' style='color:blue'>初识MongoShell</h2>
+  初识MongoShell
   
   
 
@@ -236,7 +236,7 @@ db. 表名.dropDatabase();
 如果是在当前me下则会孩子接删除
 否则db.dropDatabase(me);
 
-<h2 id="dataType" style="color:blue">MongoDB数据类型简述</h2>
+MongoDB数据类型简述
 
 
 ----------
@@ -472,7 +472,7 @@ true //mongo返回的说明成功
 这样就会得到示例中想要的结果
 {”_id“:ObjectId,"name":"susan","age":18,"sex":1,"del":{"province":"江苏"，"city":"南京",“address”:"江苏省苏州市姑苏区道前街18号"},"regeditTime":new Date()}
 
-<span style="color:red">但是这样却很繁琐,所以就要用到我们的修改器$set拉，请接着看</span>
+但是这样却很繁琐,所以就要用到我们的修改器$set拉，请接着看
 
  2>、update （$set）修改器
  ==what?修改一个指定的键值（key）==
@@ -588,7 +588,7 @@ age放在了最后，那是因为mongoDB是以文档片段形式存储的
 	}
 })
 ```
-<span style="color:red">**注意！！！！执行后我们发现为错误**。</span>
+**注意！！！！执行后我们发现为错误**。
 
 原因：我们在学习$unset时恢复age数据时，将age回复为字符串的"18"，$inc 只能对数子类型的进行增加修改。
 
@@ -697,7 +697,7 @@ db.user.update({
 		}
 	})
 ```
-<span style="color:red">注意是没有</span>
+注意是没有
 
 （3）、$addToSet
 ==what?查找是否存在，不存在添加（新版本替代$ne）==
@@ -935,7 +935,7 @@ db.user.find(
 {"name":1,"age":1,"_id":0}
 )
 ```
-(4)、多条件查询
+(4)、$or $and $not多条件查询 
 
 $or 是或的欢喜
 $and 是且的关系
