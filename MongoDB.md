@@ -850,6 +850,6 @@ findAndModify({
 	//collation:<document>
 })
 ```
-
+==注意remove与update必须要有一个存在，并且不能共存==
 
 
