@@ -852,4 +852,13 @@ findAndModify({
 ```
 ==注意remove与update必须要有一个存在，并且不能共存,findAndModify的命令效率低于其他直接命令，但是可以有效的保护我们进程，所以==
 
+command可以修改mongodb的参数。
+举例：
+
+``` stylus
+db.runCommand({
+	"ping":1//和服务器连接是否正常
+})
+```
+
 
