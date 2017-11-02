@@ -791,3 +791,32 @@ db.friend.update({
 	}
 })
 ```
+### 4、 findAndModify
+mongodb的安全机制三个方面：
+1、更新
+2、插入
+3、删除
+==非应答与应该式写入：最简单的就是执行命令，有返回相应的数据。那么安全机制就是在返回的数据中，进行验证。==
+
+为什么要有安全机制：现在的计算都是多进程的运行，mongo的实现数据的更新，插入等，时候按先到先得方式进行处理。所以如果我们有一条进程新建一条记录，另一条进程修改该条数据，mongoDB可能先接受到的是修改，这时候就会出错。所以出现安全
+
+1>、db.Command()
+what?
+Command函数中可以执行所有的mongodb命令，
+
+``` stylus
+db.listCommands()//可以显示所有MongoDB的命令
+```
+举例：
+
+``` stylus
+use study
+
+db.user.update({"sex":1},{"$set":{"num":999}},false,false)//更新sex为1的文档片段中，设置num为999
+
+var output = db.runCommand({getLastError:1})
+
+printjson(out)//打印json
+```
+
+
