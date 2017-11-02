@@ -953,7 +953,29 @@ db.userfind(
 	{"name":1,"age":1,"_id":0}
 )
 ```
-$nor
+$not 不匹配应用于条件之上，$not必须加在条件之上才可以
+
+``` stylus
+db.user.find(
+	{"age":{
+		"$not":{
+			"$lte":30,
+			"$gte":20
+		}
+	}},
+	{"name":1,"age":1,"_id":0}
+)
+```
+返回
+
+``` stylus
+{ "name" : "前进", "age" : 15 }
+{ "name" : "前进2", "age" : 35 }
+{ "name" : "前进3", "age" : 40 }
+{ "name" : "前进4", "age" : 12 }
+{ "name" : "前进9", "age" : 35 }
+```
+
 
 
 
