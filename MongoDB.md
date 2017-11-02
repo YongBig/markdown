@@ -950,9 +950,22 @@ db.user.find(
 				{"del.city":"北京"}
 			]
 	},
-	{"name":1,"age":1,"_id":0}
+	{"name":1,"age":1,"del.city":1,"_id":0}
 )
 ```
+返回
+
+``` stylus
+{ "name" : "前进", "age" : 15, "del" : { "city" : "上海" } }
+{ "name" : "前进4", "age" : 12, "del" : { "city" : "兰州" } }
+{ "name" : "前进5", "age" : 23, "del" : { "city" : "哈尔滨" } }
+{ "name" : "前进6", "age" : 22, "del" : { "city" : "天津" } }
+{ "name" : "前进7", "age" : 22, "del" : { "city" : "徐州" } }
+{ "name" : "前进8", "age" : 25, "del" : { "city" : "广州" } }
+{ "name" : "前进10", "age" : 27, "del" : { "city" : "法兰西" } }
+```
+
+
 $not 不匹配应用于条件之上，$not必须加在条件之上才可以
 
 ``` stylus
