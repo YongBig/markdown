@@ -802,7 +802,7 @@ mongodb的安全机制三个方面：
 
 1>、db.Command()
 what?
-Command函数中可以执行所有的mongodb命令
+Command函数中可以执行所有的mongodb命令,相当于Windows当前注册表的接口，并且可以修改所有mogodbde配置。
 
 ``` stylus
 db.listCommands()//可以显示所有MongoDB的命令
