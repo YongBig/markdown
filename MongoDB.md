@@ -887,6 +887,15 @@ db.user.find(
 ``` stylus
 { "_id" : ObjectId("59fafffc181d50551c2d4e9f"), "name" : "前进6", "age" : 22 }
 ```
+==我们发现，尼玛每次都有_id,我不想要怎么办==
+那么这样做
+
+``` stylus
+db.user.find(
+	{"del.city":"天津”}，
+	{“name”:1,"age":1,"_id":0}//这样就好了
+)
+```
 
 
 
