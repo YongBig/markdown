@@ -862,8 +862,9 @@ db.runCommand({
 ```
 ### 5、 find查找
 
-1> 、查询条件
-正常查找
+1> 、查询条件（分点）
+
+(1)、正常查找
 ``` stylus
 db.user.find(
 	{"del.city":"天津”}
