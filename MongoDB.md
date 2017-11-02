@@ -943,7 +943,7 @@ $and 是且的关系
 举例：
 查询年龄小于等于30，或人在北京的宝宝
 ``` stylus
-db.userfind(
+db.user.find(
 	{"
 		$or":[
 				{"age":{"$lte":30}},
