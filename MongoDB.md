@@ -802,7 +802,7 @@ mongodb的安全机制三个方面：
 
 1>、db.Command()
 what?
-Command函数中可以执行所有的mongodb命令，
+Command函数中可以执行所有的mongodb命令
 
 ``` stylus
 db.listCommands()//可以显示所有MongoDB的命令
@@ -817,6 +817,16 @@ db.user.update({"sex":1},{"$set":{"num":999}},false,false)//更新sex为1的文�
 var output = db.runCommand({getLastError:1})//如果有错误获取错误值
 
 printjson(out)//打印为json格式
+```
+当然runCommand参数中不仅仅只有getLastError这个属性，我们可以通过其键来使用任何mongodb的方法。
+
+2>、findAndModify
+举例：
+
+``` stylus
+var tmp = db.runCommand({
+	“din”
+})
 ```
 
 
