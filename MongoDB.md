@@ -839,16 +839,14 @@ printjson(temp)
 findAndModify({
 	//query:<查询文档>,
 	//sort:<"sex":1>，sex为1的排序,
-	//remove:,
-	//update:,
-	//new:,
+	//remove:<boolean  表示是否删除文档>,
 	//fields:,
-	//update:,
-	//new:,
-	//fields:,
-	//upsert:,
-	//bypassDocumentValidation:,
-	//writeConcern:,
+	//update:<修改器文档>,
+	//new:<boolean 返回更新前的文档还是更新后的文档>,
+	//fields:<document 需要反回的字段>,
+	//upsert:<boolean>,
+	//bypassDocumentValidation:<boolean  文件验证旁路>,
+	//writeConcern:<document 关注>,
 	//collation:<document>
 })
 ```
