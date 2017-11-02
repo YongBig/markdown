@@ -866,7 +866,7 @@ db.runCommand({
 正常查找
 ``` stylus
 db.user.find(
-	{"del.city":"天津'}
+	{"del.city":"天津”}
 )
 ```
 
