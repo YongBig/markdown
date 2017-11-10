@@ -1035,6 +1035,12 @@ db.user.find({“hobby”:{"$all":["花花","抒发"]}})
 //第二种查询，满足其中一项$in,满足其中一个即返回
 db.user.find({"hobby":{"$in":["花花","抒发"]}})
 
+//第二种查询，查找数组length满足条件的
+db.user.find({
+	"hobby":{
+		"$size":3
+	}
+})
 ```
 
 
