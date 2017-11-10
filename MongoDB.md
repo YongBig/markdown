@@ -1042,7 +1042,23 @@ db.user.find({
 	}
 })
 
-//第四种，
+//第四种，$slice 限制
+//错误写法
+db.user.find(
+{},{"name":1,"age":1,"hobby":1,"_id":0},
+{"hobby":{"$slice":2 //只想显示前两个爱好}
+)//发现，尼玛并没有过滤，全部显示
+//正确写法
+db.user.find({},
+{	
+	"name":1,
+	"age":1,
+	"hobby":{"$slice":2},
+	"_id":0
+}
+)
+
+//
 ```
 
 
