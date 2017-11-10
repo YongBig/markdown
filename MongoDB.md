@@ -1014,7 +1014,7 @@ db.user.find({
 ``` stylus
 db.user.find({"name":/张*/i})
 ```
-（6）、查询数组 $all $in $size
+（6）、查询数组 $all $in $size $slice
 数据空有hobby字段，是一个数组结构那么，我们怎么条件查询它。
 
 实例：
@@ -1035,13 +1035,16 @@ db.user.find({“hobby”:{"$all":["花花","抒发"]}})
 //第二种查询，满足其中一项$in,满足其中一个即返回
 db.user.find({"hobby":{"$in":["花花","抒发"]}})
 
-//第二种查询，查找数组length满足条件的
+//第三种查询，查找数组length满足条件的
 db.user.find({
 	"hobby":{
-		"$size":3
+		"$size":{"$gt":3} //爱好大于三个
 	}
 })
+
+//第四种，
 ```
+
 
 
 
