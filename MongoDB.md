@@ -989,6 +989,26 @@ db.user.find(
 { "name" : "前进9", "age" : 35 }
 ```
 (5)、$sexists 色鬼
+假设：文档数据中某个键的值为null，那么我们在查询时使用：
+
+``` stylus
+db.user.find({"login":null})
+```
+==查询的数据中记录中，起是包含了没有login字段的数据，并不是我们想要的结果，那么我需要用色鬼模式查询==
+
+$sexists 色鬼模式
+两种情况：
+当为 true 能查询到，null的值
+当为 false不能被查到
+
+实例:
+
+``` stylus
+db.user.find({
+	"login"
+})
+```
+
 
 
 
