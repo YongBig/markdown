@@ -1014,12 +1014,27 @@ db.user.find({
 ``` stylus
 db.user.find({"name":/张*/i})
 ```
-（6）、查询数组
+（6）、查询数组 $all $in $size
 数据空有hobby字段，是一个数组结构那么，我们怎么条件查询它。
 
 实例：
 ``` stylus
 db.user.find({“hobby”:[" 足球","篮球","保龄球"]})
+
+//查询喜欢足球的
+db.user.find({“hobby”:[" 足球"]})//这种写法是错误的
+
+//正确的写法
+db.user.find({“hobby”:"足球"})//这是查询单项
+
+//查询的多条件的写法
+
+//第一种查询 $all 满足花花，抒发的条件的数据 
+db.user.find({“hobby”:{"$all":["花花","抒发"]}})
+
+//第二种查询，满足其中一项$in,满足其中一个即返回
+db.user.find({"hobby":{"$in":["花花","抒发"]}})
+
 ```
 
 
