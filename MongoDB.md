@@ -1008,6 +1008,13 @@ db.user.find({
 	"login":{"$in":[null],"$sexists":true}
 })
 ```
+==补充find是支持正则的==
+实例：
+
+``` stylus
+db.user.find({"name":/张*/i})
+```
+
 
 
 
