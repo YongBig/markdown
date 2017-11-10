@@ -1014,7 +1014,13 @@ db.user.find({
 ``` stylus
 db.user.find({"name":/张*/i})
 ```
+（6）、查询数组
+数据空有hobby字段，是一个数组结构那么，我们怎么条件查询它。
 
+实例：
+``` stylus
+db.user.find({“hobby”:[" 足球","篮球","保龄球"]})
+```
 
 
 
