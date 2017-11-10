@@ -1064,7 +1064,7 @@ db.user.find({},
 {	
 	"name":1,
 	"age":1,
-	"hobby":{"$slice":2},
+	"hobby":[3,10],//第三页，每页10条数据
 	"_id":0
 }
 )
