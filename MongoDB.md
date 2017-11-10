@@ -1005,7 +1005,7 @@ $sexists 色鬼模式
 
 ``` stylus
 db.user.find({
-	"login"
+	"login":{"$in":[null],"$sexists":true}
 })
 ```
 
