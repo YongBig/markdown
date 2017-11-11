@@ -1070,9 +1070,11 @@ db.user.find({},
 )
 
 ```
+（7）、find参数
+find（query,fields,）方法参数中有如下几个：
 
+ 
 
-
-
-
+ 1. query :条件
+ 2. fields :返回的内容
 
