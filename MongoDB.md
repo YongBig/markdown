@@ -1071,10 +1071,16 @@ db.user.find({},
 
 ```
 （7）、find参数
-find（query,fields,）方法参数中有如下几个：
+find（query,fields,limit,skip,sort,batchSize,options）方法参数中有如下几个：
 
+ ==注意find的{}是不可以省略的！区别与update==
+
+ 1. query ：条件
+ 2. fields ：返回的内容
+ 3. limit：返回的数量
+ 4. skip：跳过多少个现实
+ 5. sort：排序方式  ({"age":1} 由大到小，为-1由小到大)
+ 6. batchSize：游标
+ 7. options：(后面的介绍)
  
-
- 1. query :条件
- 2. fields :返回的内容
 
