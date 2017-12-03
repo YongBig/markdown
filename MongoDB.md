@@ -1102,13 +1102,22 @@ db.user.find({"$where":"this.age>30"})//查找数据数据集合中当前age大�
 
 batchSize： 这里我们用到这个属性，叫做游标：数据库文档的指针。
 原先找寻数据库，是全文检索，你需要哪里，我在返回哪里，效率极低。
-现在：我们引入了batchSize游标，直接指向数据库中数据。
+现在：我们引入了batchSize游标，直接指向数据库中数据，下面一个章节将会介绍索引的使用。
 
+打印所有单挑数据
 ``` stylus
 //cursor
 var db = connect('study')//连接库
 
 var rs  = db.user.find()//查询所有
 
-// 循环
+// 循环   hasNext()判断是否有下一个哈希数据，有的话返回，无返回false
+while(rs.hasNext()){
+	printjson(rs.next())//逐条打印下一个的游标
+}
+
+//forEach循环
+rs.forEach(function(data){
+	printjson(data)//打印当前记录内容。
+})
 ```
