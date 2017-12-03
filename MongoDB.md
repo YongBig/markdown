@@ -1083,4 +1083,32 @@ find（query,fields,limit,skip,sort,batchSize,options）方法参数中有如下
  6. batchSize：游标
  7. options：(后面的介绍)
  
+ 举例子：分页
+ 
 
+``` stylus
+db.user.find().limit(2).skip(3).sort({"age":1})
+//查询user表每次只返回两条数据，skip跳过3条数据，按age从大到小排序
+```
+举例：如何复杂查询 $where
+
+``` stylus
+//$where 复杂查询 他的值是支持js的，this代表的是当前user的数据库。
+db.user.find({"$where":"this.age>30"})//查找数据数据集合中当前age大于30的数据
+```
+==注意：$where,要谨慎使用，如果是前段传过来的脚本验证测试时，容易把我们整个数据库攻破，where权限很大，直接暴露我们的数据库，推荐只在内部使用，不涉及外部数据的操作使用。==
+
+问题：如何在js的脚本中快速运行find的语句
+
+batchSize： 这里我们用到这个属性，叫做游标：数据库文档的指针。
+原先找寻数据库，是全文检索，你需要哪里，我在返回哪里，效率极低。
+现在：我们引入了batchSize游标，直接指向数据库中数据。
+
+``` stylus
+//cursor
+var db = connect('study')//连接库
+
+var rs  = db.user.find()//查询所有
+
+// 循环
+```
