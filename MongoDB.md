@@ -4,7 +4,7 @@
  - [初识MongoShell](#startMongoShell)
  - [MongoDB数据类型简述](#dataType)
  - [ 深入基础命令](#baseShell)
-
+ - [索引](#index)
 <h2 id="Sketch" style="color:blue">MongoDB 简述</h2>
 
 ### 1、计算机数据库的发展史
@@ -1120,4 +1120,29 @@ while(rs.hasNext()){
 rs.forEach(function(data){
 	printjson(data)//打印当前记录内容。
 })
+```
+<h2 id="index" style="color:blue">MongoDB 索引</h2>
+
+### 1、建立索引
+
+==MongoDB最快的查询，是按_id查询，但是正常查询都是值得查询，这需要我们建立索引来帮助查询。==
+
+这里那用户名举例子，查询百万级别的库，正常查询与索引查询的速度。
+
+本次我们要用到nodejs，由于人电脑是mac不错介绍安装。
+
+第一步，编写js生成随机生成用户名
+
+``` stylus
+//获取随机数
+function GetRandomNum(min,max){
+	var range = max -min
+	var rand = Math.random()
+	return (min + Math.round(rand * range))
+}
+function GetRandomUserName(min,max){
+	var char ="3122456787654343564352453645432456352_sfdsgjdsfsdfndsfds".split("")
+	var outputText = ""
+	
+}
 ```
