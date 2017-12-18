@@ -1280,3 +1280,50 @@ db.asdf.getIndexes()//回去当前集合的索引
         "ok" : 1
 }
 ```
+这时候重复db.asdf.getIndexes()，会发现username也有索引了
+
+``` javascript?linenums
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "study.asdf"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "username" : 1
+                },
+                "name" : "username_1",
+                "ns" : "study.asdf"
+        }
+]
+```
+这时候重新load之前查询文件,我们发现
+
+``` stylus
+> load ("C:/Program Files/MongoDB/Server/indexes.js")
+connecting to: study
+{
+        "_id" : ObjectId("5a37801641ce6fec9fc50145"),
+        "username" : "drehtyt8",
+        "regediTime" : ISODate("2017-12-18T08:41:11.384Z"),
+        "randomNum0" : 792594,
+        "randomNum1" : 415801,
+        "randomNum2" : 203506,
+        "randomNum3" : 391589,
+        "randomNum4" : 831088,
+        "randomNum5" : 588160,
+        "randomNum6" : 706367,
+        "randomNum7" : 353796,
+        "randomNum8" : 565257,
+        "randomNum9" : 276867
+}
+this run time is :250ms
+true
+```
+我们查询的时间只有7ms了 缩短近150倍
+
