@@ -1202,4 +1202,7 @@ db.asdf.stats()//查看数据状态
 ``` javascript
 //查找
 db.asdf.find().skip(40000)//查找数据，但是跳过四万
+
+//数据过多时，输入 it 下一页
+it
 ```
