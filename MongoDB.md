@@ -1181,3 +1181,19 @@ print ('this run time is :' + runTime + 'ms')
 ```
 ==以上命令制造百万级别数据库==
 
+查看当前数据集合 asdf 的数据状态
+
+``` stylus
+db.asdf.stats()//查看数据状态
+//返回
+{
+        "ns" : "study.asdf",
+        "count" : 2000000,
+        "size" : 533272199,
+        "avgObjSize" : 266,
+        "storageSize" : 236920832,
+        "capped" : false,
+        "wiredTiger" : {
+		.......................
+}
+```
