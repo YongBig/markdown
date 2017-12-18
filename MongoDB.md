@@ -1179,3 +1179,5 @@ var runtime = (new Date()).getTime() - startTime
 print ('this run time is :' + runTime + 'ms')
 //console.log(GetRandomUserName(7,15))
 ```
+==以上命令制造百万级别数据库==
+
