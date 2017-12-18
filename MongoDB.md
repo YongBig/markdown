@@ -1156,7 +1156,6 @@ var db = connect('study')
 
 
 var runtime = (new Date(0).getTime() - startTime
-
 print ('this run time is :' + runTime + 'ms')
 //console.log(GetRandomUserName(7,15))
 ```
