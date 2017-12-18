@@ -1156,7 +1156,19 @@ var db = connect('study')
 var tempArry = []
 
 for (var i =0; i<2000000;i++){
-	tempArry.push({"username":GetRandomUserName(7,15),"regediTime":new Date(),"randomNum1":GetRandomNum(100000,1000000),"randomNum2":GetRandomNum(100000,1000000),"randomNum3":GetRandomNum(100000,1000000),"randomNum4":GetRandomNum(100000,1000000),"randomNum5":GetRandomNum(100000,1000000),"randomNum6":GetRandomNum(100000,1000000),"randomNum7":GetRandomNum(100000,1000000),"randomNum8":GetRandomNum(100000,1000000),"randomNum9":GetRandomNum(100000,1000000),"randomNum10":GetRandomNum(100000,1000000),
+	tempArry.push({
+	"username":GetRandomUserName(7,15),
+   	"regediTime":newDate(),
+   	"randomNum1":GetRandomNum(100000,1000000),
+   	"randomNum2":GetRandomNum(100000,1000000),
+   	"randomNum3":GetRandomNum(100000,1000000),
+   	"randomNum4":GetRandomNum(100000,1000000),
+   	"randomNum5":GetRandomNum(100000,1000000),
+   	"randomNum6":GetRandomNum(100000,1000000),
+  	 "randomNum7":GetRandomNum(100000,1000000),
+   	"randomNum8":GetRandomNum(100000,1000000),
+   	"randomNum9":GetRandomNum(100000,1000000),
+   	"randomNum10":GetRandomNum(100000,1000000),
 	})
 }
 
