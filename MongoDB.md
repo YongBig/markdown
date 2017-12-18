@@ -1143,8 +1143,9 @@ function GetRandomNum(min,max){
 function GetRandomUserName(min,max){
 	var char ="0987654321_qwertyuiopasdfghjklzxcvbnm".split("")
 	var outputText = ""
-	for(var i = 1 ;i<GetRandomNum(min,max)){
-		outputTest = putputText + char[GetRandomNum(0,char.length)]
+	for(var i = 1 ;i<GetRandomNum(min,max);i++){
+		outputTest = outputText + char[GetRandomNum(0,char.length)]
 	}
+	return outputText
 }
 ```
