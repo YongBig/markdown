@@ -1159,7 +1159,7 @@ var tempArry = []
 for (var i =0; i<2000000;i++){
 	tempArry.push({
 	"username":GetRandomUserName(7,15),
-   	"regediTime":newDate(),
+   	"regediTime":new Date(),
 	"randomNum0":GetRandomNum(100000,1000000),
    	"randomNum1":GetRandomNum(100000,1000000),
    	"randomNum2":GetRandomNum(100000,1000000),
