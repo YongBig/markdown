@@ -1216,8 +1216,8 @@ var db = connect('study');
 //查找数据
 var rs = db.asdf.find({"username":"drehtyt8"});
 
-while (rs.hasNext()){
-    printjson(rs.next())
+while (rs.hasNext()){//判断是否有重复的数据,第一条为原数据
+    printjson(rs.next())//逐条打印
 }
 var runtime = (new Date()).getTime() - starttime;
 print ('this run time is :' + runtime + 'ms');
@@ -1241,5 +1241,5 @@ print ('this run time is :' + runtime + 'ms');
         "randomNum8" : 565257,
         "randomNum9" : 276867
 }
-
+//this run time is :1219ms 一条数据的查询时间
 ```
