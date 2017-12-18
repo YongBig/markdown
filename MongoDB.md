@@ -1133,7 +1133,7 @@ rs.forEach(function(data){
 
 第一步，编写js生成随机生成用户名
 
-``` stylus
+``` javascript?linenums
 //获取随机数
 function GetRandomNum(min,max){
 	var range = max -min
@@ -1183,7 +1183,7 @@ print ('this run time is :' + runTime + 'ms')
 
 查看当前数据集合 asdf 的数据状态
 
-``` stylus
+``` javascript
 db.asdf.stats()//查看数据状态
 //返回
 {
@@ -1196,4 +1196,10 @@ db.asdf.stats()//查看数据状态
         "wiredTiger" : {
 		.......................
 }
+```
+==正常查找数==
+
+``` javascript
+//查找
+db.asdf.find().skip(40000)//查找数据，但是跳过四万
 ```
