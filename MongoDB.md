@@ -1141,7 +1141,7 @@ function GetRandomNum(min,max){
 	return (min + Math.round(rand * range))
 }
 function GetRandomUserName(min,max){
-	var char ="3122456787654343564352453645432456352_sfdsgjdsfsdfndsfds".split("")
+	var char ="0987654321_qwertyuiopasdfghjklzxcvbnm".split("")
 	var outputText = ""
 	
 }
