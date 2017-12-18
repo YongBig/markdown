@@ -1152,6 +1152,7 @@ function GetRandomUserName(min,max){
 
 var starttime = (new Date(0).getTime()
 var db = connect('study')
+db.asdf.drop()
 
 var tempArry = []
 
@@ -1172,6 +1173,7 @@ for (var i =0; i<2000000;i++){
 	})
 }
 
+ab.asdf,insert(tempArry)
 
 var runtime = (new Date(0).getTime() - startTime
 print ('this run time is :' + runTime + 'ms')
