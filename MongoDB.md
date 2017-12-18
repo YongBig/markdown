@@ -1173,7 +1173,7 @@ for (var i =0; i<2000000;i++){
 	})
 }
 
-ab.asdf.insert(tempArry)
+db.asdf.insert(tempArry)
 
 var runtime = (new Date()).getTime() - startTime
 print ('this run time is :' + runTime + 'ms')
