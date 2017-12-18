@@ -1327,3 +1327,4 @@ true
 ```
 我们查询的时间只有7ms了 缩短近150倍
 
+<span style="color:#e4393c">注意：mongoDB每一个集合可以建立64个索引值</span>
