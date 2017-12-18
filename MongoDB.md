@@ -1140,6 +1140,7 @@ function GetRandomNum(min,max){
 	var rand = Math.random()
 	return (min + Math.round(rand * range))
 }
+
 function GetRandomUserName(min,max){
 	var char ="0987654321_qwertyuiopasdfghjklzxcvbnm".split("")
 	var outputText = ""
@@ -1149,5 +1150,11 @@ function GetRandomUserName(min,max){
 	return outputText;
 }
 
-console.log(GetRandomUserName(7,15))
+var starttime = (new Date(0).getTime()
+var db = connect('study')
+
+
+
+var runtime = (new Date(0).getTime() - startTime
+//console.log(GetRandomUserName(7,15))
 ```
