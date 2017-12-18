@@ -1146,6 +1146,6 @@ function GetRandomUserName(min,max){
 	for(var i = 1 ;i<GetRandomNum(min,max);i++){
 		outputTest = outputText + char[GetRandomNum(0,char.length)]
 	}
-	return outputText
+	return outputText;
 }
 ```
