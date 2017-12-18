@@ -1206,3 +1206,40 @@ db.asdf.find().skip(40000)//查找数据，但是跳过四万
 //数据过多时，输入 it 下一页
 it
 ```
+==查找单条数据 username:drehtyt8==
+indexex
+
+``` javascript?linenums
+var starttime = (new Date()).getTime();
+var db = connect('study');
+
+//查找数据
+var rs = db.asdf.find({"username":"drehtyt8"});
+
+while (rs.hasNext()){
+    printjson(rs.next())
+}
+var runtime = (new Date()).getTime() - starttime;
+print ('this run time is :' + runtime + 'ms');
+
+```
+==返回==
+
+``` javascript?linenums	
+{
+        "_id" : ObjectId("5a37801641ce6fec9fc50145"),
+        "username" : "drehtyt8",
+        "regediTime" : ISODate("2017-12-18T08:41:11.384Z"),
+        "randomNum0" : 792594,
+        "randomNum1" : 415801,
+        "randomNum2" : 203506,
+        "randomNum3" : 391589,
+        "randomNum4" : 831088,
+        "randomNum5" : 588160,
+        "randomNum6" : 706367,
+        "randomNum7" : 353796,
+        "randomNum8" : 565257,
+        "randomNum9" : 276867
+}
+
+```
