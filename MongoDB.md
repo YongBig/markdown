@@ -1148,4 +1148,6 @@ function GetRandomUserName(min,max){
 	}
 	return outputText;
 }
+
+console.log(GetRandomUserName(7,15))
 ```
