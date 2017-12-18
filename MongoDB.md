@@ -1246,20 +1246,37 @@ print ('this run time is :' + runtime + 'ms');
 （2）、建议索引查找数据
 
 怎么建立索引查找数据?
+==使用ensureIndex==
+``` javascript?linenums
+
+db.asdf.ensureIndex({"username":1}) //意思确保索引值建立索引(),建立username的索引
+
+```
+那么没建立索引的时候mongodb会自动给"_id"加上索引
 
 ``` javascript?linenums
-var starttime = (new Date()).getTime();
-var db = connect('study');
+db.asdf.getIndexes()//回去当前集合的索引
 
-//查找数据
-var rs = db.asdf.find({"username":"drehtyt8"});
+//返回
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "study.asdf"
+        }
+]
+```
+那么运行db.asdf.ensureIndex({"username":1})，一段时间后会自动为mongodb中的每一条username添加索引
+成功后会返回
 
-while (rs.hasNext()){//判断是否有重复的数据,第一条为原数据
-    printjson(rs.next())//逐条打印
+``` javascript?linenums
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
 }
-
-
-var runtime = (new Date()).getTime() - starttime;
-print ('this run time is :' + runtime + 'ms');
-
 ```
