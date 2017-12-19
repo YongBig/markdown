@@ -1327,4 +1327,4 @@ true
 ```
 我们查询的时间只有7ms了 缩短近150倍
 
-<span style="color:#e4393c">注意：mongoDB每一个集合可以建立64个索引值</span>
+<span style="color:#e4393c">注意：mongoDB每一个集合可以建立64个索引值,索引越多，硬盘与内存的使用空间也会增加，量力而行之</span>
