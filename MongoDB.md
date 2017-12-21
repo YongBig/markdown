@@ -1370,5 +1370,5 @@ true
  db.asdf.find({"RandomNum4":224154,"username":"dydydyd"}).hint({"RandomNum4":1})
 
 ```
-
+==补充：查询:bool无需做索引，==快，其次<、>、<=、>=、最慢是!= ==
 
