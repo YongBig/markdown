@@ -1366,7 +1366,7 @@ true
   解决方法： hint()
   
 ``` javascript?linenums
-//用RandomNum,作为基准
+//用RandomNum,作为基准查询
  db.asdf.find({"RandomNum4":224154,"username":"dydydyd"}).hint({"RandomNum4":1})
 
 ```
