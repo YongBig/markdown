@@ -54,22 +54,12 @@ what？
 ###  1、[windows版本下载][1]
 
 
-----------
+![enter description here][2]
 
 
 ###  2、==安装版本介绍==
   
 
-
-----------
-
-
-  ![enter description here][2]
-
-
-  [1]: https://www.mongodb.com/download-center
-  [2]: ./images/mongodw.jpg "mongodw"
-  
   SSL：是MongoDB用于服务器与服务器之间传递的服务
   
   选择合适的安装包下载安装。
@@ -1403,4 +1393,6 @@ db.asdf.getIndexes()
 ```
 
 
-
+  [1]: https://www.mongodb.com/download-center
+  [2]: ./images/2017-12-21_200857.png "2017-12-21_200857"
+  [3]: ./images/mongodw.jpg "mongodw"
