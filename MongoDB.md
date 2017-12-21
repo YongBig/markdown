@@ -1378,7 +1378,28 @@ true
 	
 
 ``` javascript?linenums
-db.asdf.dropIndex
+db.asdf.dropIndex("索引的唯一Id")
+//唯一Id是什么
+db.asdf.getIndexes()
+[
+        {
+                "v" : 1,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_",
+                "ns" : "study.asdf"
+        },
+        {
+                "v" : 1,
+                "key" : {
+                        "username" : 1
+                },
+                "name" : "username_1",//这里就是username的唯一的id ==> "username_1",也就是name的值
+                "ns" : "study.asdf"
+        }
+]
+//返回
 ```
 
 
