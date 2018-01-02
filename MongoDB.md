@@ -1419,5 +1419,7 @@ db.createCollection("log",{"capped":true,"size":10000,"max":10})
 #### ==普通集合转换为固定集合 #007480==
 
 ``` javascript
-db.runCommand()
+//假如有普通的集合 logold 转换为固定集合
+db.runCommand({"converToCapped":"logold","max":10})
+//!!! 固定集合是不可以转换为普通集合的
 ```
