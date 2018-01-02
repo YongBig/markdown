@@ -1423,3 +1423,24 @@ db.createCollection("log",{"capped":true,"size":10000,"max":10})
 db.runCommand({"converToCapped":"logold","max":10})
 //!!! 固定集合是不可以转换为普通集合的
 ```
+==如何查询数据的新旧==
+
+``` javascript
+//$natural 为1时 重旧到新，为-1时重新到旧
+db.logold.find().sort({"$natural":1})
+```
+==通常mongoDB会帮助我们我们新建_id的索引，如何取消_id==
+
+``` javascript?linenums
+//取消_id
+db.createCollection('log',{"autoIndexId":false})
+```
+==ttl索引==
+帮助我们删除指定文档，可以定时任务。
+
+``` javascript
+//根据过期时间删除固定索引数据
+db.log.ensureIndex({"data":1},{"expireAfterSecs":60*60*24})
+```
+
+
