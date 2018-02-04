@@ -1162,3 +1162,8 @@ function GetRandomUserName(min,max){
 程序接口微服务(中间件) <- 应用程序
 4、分片
 #### <1>、主从数据库建立
+
+``` shell?linenums
+# -- 指令 、- 属性 -slave 从库 -soure 主库（必须带端口）
+mongod --port 27018 --dbpath=f:/mongodbs/data -slave -soure 127.0.0.1:27017   
+```
