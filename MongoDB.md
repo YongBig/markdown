@@ -1211,7 +1211,7 @@ mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log
 设置副本数据库
 
 ``` javascript?linenums
-var replicaSet - {
+var replicaSet = {
 	"_id":"aaaa",
 	"members":[
 		{"_id":0,"host":"127.0.0.1:1111"},
@@ -1219,6 +1219,7 @@ var replicaSet - {
 		{"_id":2,"host":"127.0.0.1:3333"}
 	]
 }
+rs.initiate(replicaSet)
 ```
 
 
