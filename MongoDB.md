@@ -1232,7 +1232,6 @@ rs.initiate(replicaSet)
   第六步：
   查询副本集合的状态
   
-
 ``` javascript?linenums
 rs.status()//查看副本集合状态
 ```
@@ -1330,6 +1329,8 @@ rs.status()//查看副本集合状态
         "ok" : 1
 }
 ```
+第七步：
+关闭1111数据库
 
 
 
