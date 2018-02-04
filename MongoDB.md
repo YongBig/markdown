@@ -1195,5 +1195,8 @@ mongo 127.0.0.1:27018
   
 
 ``` stylus
-mongod --port 1111 --dbpath f:/mongodbs/data/db1 -slave -source 127.0.0.1:27017
+mongod --port 1111 --dbpath f:/mongodbs/data/db1 --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
+mongod --port 1111 --dbpath f:/mongodbs/data/db1 --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
+mongod --port 1111 --dbpath f:/mongodbs/data/db1 --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
+
 ```
