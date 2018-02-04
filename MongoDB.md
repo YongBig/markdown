@@ -5,6 +5,7 @@
  - [MongoDB数据类型简述](#dataType)
  - [ 深入基础命令](#baseShell)
  - [索引](#index)
+ - [管理MongoDB](#manage)
 <h2 id="Sketch" style="color:blue">MongoDB 简述</h2>
 
 ### 1、计算机数据库的发展史
@@ -54,12 +55,22 @@ what？
 ###  1、[windows版本下载][1]
 
 
-![enter description here][2]
+----------
 
 
 ###  2、==安装版本介绍==
   
 
+
+----------
+
+
+  ![enter description here][2]
+
+
+  [1]: https://www.mongodb.com/download-center
+  [2]: ./images/mongodw.jpg "mongodw"
+  
   SSL：是MongoDB用于服务器与服务器之间传递的服务
   
   选择合适的安装包下载安装。
@@ -1119,328 +1130,24 @@ rs.forEach(function(data){
 
 这里那用户名举例子，查询百万级别的库，正常查询与索引查询的速度。
 
-本次我们要用到nodejs，由于人电脑是mac不错介绍安装。
+本次我们要用到nodejs，由于作者电脑是mac不做介绍安装。
 
 第一步，编写js生成随机生成用户名
 
-``` javascript?linenums
+``` stylus
 //获取随机数
 function GetRandomNum(min,max){
 	var range = max -min
 	var rand = Math.random()
 	return (min + Math.round(rand * range))
 }
-
 function GetRandomUserName(min,max){
-	var char ="0987654321_qwertyuiopasdfghjklzxcvbnm".split("")
+	var char ="3122456787654343564352453645432456352_sfdsgjdsfsdfndsfds".split("")
 	var outputText = ""
-	for(var i = 1 ;i<GetRandomNum(min,max);i++){
-		outputText = outputText + char[GetRandomNum(0,char.length)]
-	}
-	return outputText;
-}
-
-var starttime = (new Date()).getTime()
-var db = connect('study')
-db.asdf.drop()
-
-var tempArry = []
-
-for (var i =0; i<2000000;i++){
-	tempArry.push({
-	"username":GetRandomUserName(7,15),
-   	"regediTime":new Date(),
-	"randomNum0":GetRandomNum(100000,1000000),
-   	"randomNum1":GetRandomNum(100000,1000000),
-   	"randomNum2":GetRandomNum(100000,1000000),
-   	"randomNum3":GetRandomNum(100000,1000000),
-   	"randomNum4":GetRandomNum(100000,1000000),
-   	"randomNum5":GetRandomNum(100000,1000000),
-   	"randomNum6":GetRandomNum(100000,1000000),
-  	 "randomNum7":GetRandomNum(100000,1000000),
-   	"randomNum8":GetRandomNum(100000,1000000),
-   	"randomNum9":GetRandomNum(100000,1000000)
-	})
-}
-
-db.asdf.insert(tempArry)
-
-var runtime = (new Date()).getTime() - startTime
-print ('this run time is :' + runTime + 'ms')
-//console.log(GetRandomUserName(7,15))
-```
-==以上命令制造百万级别数据库==
-
-查看当前数据集合 asdf 的数据状态
-
-``` javascript
-db.asdf.stats()//查看数据状态
-//返回
-{
-        "ns" : "study.asdf",
-        "count" : 2000000,
-        "size" : 533272199,
-        "avgObjSize" : 266,
-        "storageSize" : 236920832,
-        "capped" : false,
-        "wiredTiger" : {
-		.......................
-}
-```
-（1）、正常查找数据
-
-``` javascript
-//查找
-db.asdf.find().skip(40000)//查找数据，但是跳过四万条
-
-//数据过多时，输入 it 下一页
-it
-```
-==查找单条数据 username:drehtyt8==
-indexex
-
-``` javascript?linenums
-var starttime = (new Date()).getTime();
-var db = connect('study');
-
-//查找数据
-var rs = db.asdf.find({"username":"drehtyt8"});
-
-while (rs.hasNext()){//判断是否有重复的数据,第一条为原数据
-    printjson(rs.next())//逐条打印
-}
-var runtime = (new Date()).getTime() - starttime;
-print ('this run time is :' + runtime + 'ms');
-
-```
-==返回==
-
-``` javascript?linenums	
-{
-        "_id" : ObjectId("5a37801641ce6fec9fc50145"),
-        "username" : "drehtyt8",
-        "regediTime" : ISODate("2017-12-18T08:41:11.384Z"),
-        "randomNum0" : 792594,
-        "randomNum1" : 415801,
-        "randomNum2" : 203506,
-        "randomNum3" : 391589,
-        "randomNum4" : 831088,
-        "randomNum5" : 588160,
-        "randomNum6" : 706367,
-        "randomNum7" : 353796,
-        "randomNum8" : 565257,
-        "randomNum9" : 276867
-}
-//this run time is :1219ms 一条数据的查询时间
-```
-（2）、建议索引查找数据
-
-怎么建立索引查找数据?
-==使用ensureIndex==
-``` javascript?linenums
-
-db.asdf.ensureIndex({"username":1}) //意思确保索引值建立索引(),建立username的索引
-
-```
-那么没建立索引的时候mongodb会自动给"_id"加上索引
-
-``` javascript?linenums
-db.asdf.getIndexes()//回去当前集合的索引
-
-//返回
-[
-        {
-                "v" : 1,
-                "key" : {
-                        "_id" : 1
-                },
-                "name" : "_id_",
-                "ns" : "study.asdf"
-        }
-]
-```
-那么运行db.asdf.ensureIndex({"username":1})，一段时间后会自动为mongodb中的每一条username添加索引
-成功后会返回
-
-``` javascript?linenums
-{
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
-```
-这时候重复db.asdf.getIndexes()，会发现username也有索引了
-
-``` javascript?linenums
-[
-        {
-                "v" : 1,
-                "key" : {
-                        "_id" : 1
-                },
-                "name" : "_id_",
-                "ns" : "study.asdf"
-        },
-        {
-                "v" : 1,
-                "key" : {
-                        "username" : 1
-                },
-                "name" : "username_1",
-                "ns" : "study.asdf"
-        }
-]
-```
-这时候重新load之前查询文件,我们发现
-
-``` stylus
-> load ("C:/Program Files/MongoDB/Server/indexes.js")
-connecting to: study
-{
-        "_id" : ObjectId("5a37801641ce6fec9fc50145"),
-        "username" : "drehtyt8",
-        "regediTime" : ISODate("2017-12-18T08:41:11.384Z"),
-        "randomNum0" : 792594,
-        "randomNum1" : 415801,
-        "randomNum2" : 203506,
-        "randomNum3" : 391589,
-        "randomNum4" : 831088,
-        "randomNum5" : 588160,
-        "randomNum6" : 706367,
-        "randomNum7" : 353796,
-        "randomNum8" : 565257,
-        "randomNum9" : 276867
-}
-this run time is :250ms
-true
-```
-我们查询的时间只有7ms了 缩短近150倍
-
-<span style="color:#e4393c">注意：mongoDB每一个集合可以建立64个索引值,索引越多，硬盘与内存的使用空间也会增加，量力而行之</span>
-
-### 2、索引的利弊
-==补充：基数==
-什么是基数：
-集合中模个字段，拥有不同值得数量称作基数。
-举例：sex 字段值有1,0 拥有两个基数 基数少
-			username 的值坑不同 基数比较多
-那么衍生一个概念，并不是所有的字段建立索引查询都会变快。
-当搜索的结构大于30%时，就会变慢。
-
-==索引的原理==
-原理：索引根据键值，建议一个有逻辑顺序的表。
-如：0-z , 假设w 对应的是_id，_id对应就是username-_id 值
-如果 搜索的记过大于30%,那么反而，相当于便利两个表，德堡尝失。
-
-### 3、复合索引查询
-
-复合索引查询：索引可以复合多组合的查询
-
-``` javascript?linenums
-//使用之前的200W数据
-//按照建立索引教程，建立一个RandomNum4 的索引
- //建立成功后 我们复合查询
- 
- db.asdf.find({"RandomNum4":224154,"username":"dydydyd"})
-//14 ms - 16ms 之间的，复合索引
-
-```
-==注意：在mongodb2.0期间，当你写入两个索引，进行复合查询的时候，它只会按第一个索引作为基准进行查询，所以当你的索引顺序写入不同时候，他返回查询时间差距是比较大的 #e4393c==
-
-==注意：在mongodb3.0期间，当你写入两个索引，进行复合查询的时候，它的基准是按照复合条件中在getIndexes里表里的第一位基准，再有大量索引是将会优化速度 #e4393c==
-
-当前使用版本是3.2，所以复合索引是最新的基准模式，那么出现一个==问题 #E4393c==。
-例如：RandomNum4 基数是数字，而username则字母加上数字，这样明显按RandomNum4的基准查询更快一些，但我们使用过的3.2的版本，复合索引是最新的模式，那么我们会按userName的索引进行查询。明显相率低了一级。
-
-  解决方法： hint()
-  
-``` javascript?linenums
-//用RandomNum,作为基准查询
- db.asdf.find({"RandomNum4":224154,"username":"dydydyd"}).hint({"RandomNum4":1})
-
-```
-==补充：查询:bool无需做索引，==快，其次<、>、<=、>=、最慢是!= ==
-
-建议： 如果我么你的一各集合会反复查询，那么推荐不要索引字符串，推荐索引内嵌文档，更精确的查找。
-
-#### 删除索引：
 	
-
-``` javascript?linenums
-db.asdf.dropIndex("索引的唯一Id")
-//唯一Id是什么
-db.asdf.getIndexes()
-[
-        {
-                "v" : 1,
-                "key" : {
-                        "_id" : 1
-                },
-                "name" : "_id_",
-                "ns" : "study.asdf"
-        },
-        {
-                "v" : 1,
-                "key" : {
-                        "username" : 1
-                },
-                "name" : "username_1",//这里就是username的唯一的id ==> "username_1",也就是name的值
-                "ns" : "study.asdf"
-        }
-]
-//返回
+}
 ```
 
 
-  [1]: https://www.mongodb.com/download-center
-  [2]: ./images/2017-12-21_200857.png "2017-12-21_200857"
-  [3]: ./images/mongodw.jpg "mongodw"
-  
- ### 4、固定集合索引
- ==固定集合 #800000==
-集合可以限制存储大小，及集合中的数量，限制的集合我们成为固定集合。
-
-| 固定集合限制| |
-| ---- | -------------- |
-| max  |   限制集合文件的数量  |
-| size | 限制文件的大小 |
- 
- #### ==创建日志的固定集合 #007480==
- 
-
-``` javascript?linenums
-//Capped集合是固定大小的集合,
-db.createCollection("log",{"capped":true,"size":10000,"max":10})
-```
-==固定的集合是不可以修改的，只可以删除，建立，或把普通集合转换为固定的集合 #800000==
-==size与max字段，当同时出现时，则会遵循优先原则，先先卸载前，执行谁。 #800000==
-
-#### ==普通集合转换为固定集合 #007480==
-
-``` javascript
-//假如有普通的集合 logold 转换为固定集合
-db.runCommand({"converToCapped":"logold","max":10})
-//!!! 固定集合是不可以转换为普通集合的
-```
-==如何查询数据的新旧==
-
-``` javascript
-//$natural 为1时 重旧到新，为-1时重新到旧
-db.logold.find().sort({"$natural":1})
-```
-==通常mongoDB会帮助我们我们新建_id的索引，如何取消_id==
-
-``` javascript?linenums
-//取消_id
-db.createCollection('log',{"autoIndexId":false})
-```
-==ttl索引==
-帮助我们删除指定文档，可以定时任务。
-
-``` javascript
-//根据过期时间删除固定索引数据
-db.log.ensureIndex({"data":1},{"expireAfterSecs":60*60*24})
-```
-
+<h2 id="manage" style="color:blue">MongoDB Manage</h2>
 
