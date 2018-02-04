@@ -1207,11 +1207,13 @@ mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log
   
 
 
+  
+  
+
+
   [1]: https://www.mongodb.com/download-center
   [2]: ./images/mongodw.jpg "mongodw"
   [3]: ./images/mongo%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93.png "mongo从数据库"
   [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
-  [5]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225150.png "QQ截图20180204225150"
+  [5]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225150_1.png "QQ截图20180204225150"
   [6]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225906_2.png "QQ截图20180204225906"
-  
-  
