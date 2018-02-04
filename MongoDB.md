@@ -1188,8 +1188,8 @@ mongo 127.0.0.1:27018
 
  第二步： 
   语法
-  
-``` stylus
+  --replSet aaaa (副本的方式启动，唯一key 是aaaa)
+``` shell?linenums
 mongod --port 1111 --dbpath f:/mongodbs/data/db1/ --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
 mongod --port 2222 --dbpath f:/mongodbs/data/db2/ --logpath f:/mongodbs/data/log/mongodb2.log --replSet aaaa --logappend
 mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log/mongodb3.log --replSet aaaa --logappend
