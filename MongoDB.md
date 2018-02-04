@@ -1238,6 +1238,99 @@ rs.status()//查看副本集合状态
 ```
 返回
 
+``` javascript?linenums
+{
+        "set" : "aaaa",
+        "date" : ISODate("2018-02-04T15:30:51.401Z"),
+        "myState" : 1,
+        "term" : NumberLong(1),
+        "heartbeatIntervalMillis" : NumberLong(2000),
+        "optimes" : {
+                "lastCommittedOpTime" : {
+                        "ts" : Timestamp(1517758245, 1),
+                        "t" : NumberLong(1)
+                },
+                "appliedOpTime" : {
+                        "ts" : Timestamp(1517758245, 1),
+                        "t" : NumberLong(1)
+                },
+                "durableOpTime" : {
+                        "ts" : Timestamp(1517758245, 1),
+                        "t" : NumberLong(1)
+                }
+        },
+        "members" : [
+                {
+                        "_id" : 0,
+                        "name" : "127.0.0.1:1111",
+						
+                        "health" : 1,//存活状态
+                        "state" : 1,
+                        "stateStr" : "PRIMARY",//PRIMARY 主数据库 ,SECONDARY 从数据库
+                        "uptime" : 1686,
+                        "optime" : {
+                                "ts" : Timestamp(1517758245, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2018-02-04T15:30:45Z"),
+                        "electionTime" : Timestamp(1517757344, 1),
+                        "electionDate" : ISODate("2018-02-04T15:15:44Z"),
+                        "configVersion" : 1,
+                        "self" : true
+                },
+                {
+                        "_id" : 1,
+                        "name" : "127.0.0.1:2222",
+                        "health" : 1,
+                        "state" : 2,
+                        "stateStr" : "SECONDARY",
+                        "uptime" : 917,
+                        "optime" : {
+                                "ts" : Timestamp(1517758245, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(1517758245, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2018-02-04T15:30:45Z"),
+                        "optimeDurableDate" : ISODate("2018-02-04T15:30:45Z"),
+                        "lastHeartbeat" : ISODate("2018-02-04T15:30:50.785Z"),
+                        "lastHeartbeatRecv" : ISODate("2018-02-04T15:30:50.215Z"
+),
+                        "pingMs" : NumberLong(0),
+                        "syncingTo" : "127.0.0.1:1111",
+                        "configVersion" : 1
+                },
+                {
+                        "_id" : 2,
+                        "name" : "127.0.0.1:3333",
+                        "health" : 1,
+                        "state" : 2,
+                        "stateStr" : "SECONDARY",
+                        "uptime" : 917,
+                        "optime" : {
+                                "ts" : Timestamp(1517758245, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(1517758245, 1),
+                                "t" : NumberLong(1)
+                        },
+                        "optimeDate" : ISODate("2018-02-04T15:30:45Z"),
+                        "optimeDurableDate" : ISODate("2018-02-04T15:30:45Z"),
+                        "lastHeartbeat" : ISODate("2018-02-04T15:30:50.785Z"),
+                        "lastHeartbeatRecv" : ISODate("2018-02-04T15:30:50.378Z"
+),
+                        "pingMs" : NumberLong(0),
+                        "syncingTo" : "127.0.0.1:1111",
+                        "configVersion" : 1
+                }
+        ],
+        "ok" : 1
+}
+```
+
 
 
 
