@@ -1199,12 +1199,25 @@ mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log
 ![enter description here][5]
 
 
-  第三步：
+ 第三步：
   启动后的每个mongoDB都可以登录
   登录 127.0.0.1:1111数据库
   
   ![enter description here][6]
   
+我们会发现 他们都不是主数据库
+
+第四步:
+设置副本数据库
+
+``` javascript?linenums
+var replicaSet - {
+	"_id":"aaaa",
+	"members":[
+		{"_id":0,"host":"127.0.0.1:1111"},
+	]
+}
+```
 
 
   
