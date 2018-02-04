@@ -1190,3 +1190,10 @@ mongo 127.0.0.1:27018
   [2]: ./images/mongodw.jpg "mongodw"
   [3]: ./images/mongo%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93.png "mongo从数据库"
   [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
+  
+  语法
+  
+
+``` stylus
+mongod --port 1111 --dbpath f:/mongodbs/data/db1 -slave -source 127.0.0.1:27017
+```
