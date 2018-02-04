@@ -1199,3 +1199,5 @@ mongod --port 1111 --dbpath f:/mongodbs/data/db1/ --logpath f:/mongodbs/data/log
 mongod --port 2222 --dbpath f:/mongodbs/data/db2/ --logpath f:/mongodbs/data/log/mongodb2.log --replSet aaaa --logappend
 mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log/mongodb3.log --replSet aaaa --logappend
 ```
+
+分别启动
