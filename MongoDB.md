@@ -68,8 +68,6 @@ what？
   ![enter description here][2]
 
 
-  [1]: https://www.mongodb.com/download-center
-  [2]: ./images/mongodw.jpg "mongodw"
   
   SSL：是MongoDB用于服务器与服务器之间传递的服务
   
@@ -1165,5 +1163,30 @@ function GetRandomUserName(min,max){
 
 ``` shell?linenums
 # -- 指令 、- 属性 -slave 从库 -soure 主库（必须带端口）
-mongod --port 27018 --dbpath=f:/mongodbs/data -slave -soure 127.0.0.1:27017   
+mongod --port 27018 --dbpath=f:/mongodbs/data -slave -source 127.0.0.1:27017
 ```
+之后数据会同步。
+我们进入从库查看是否启动
+
+``` shell
+mongo 127.0.0.1:27018
+```
+
+![enter description here][3]
+
+
+  
+  主从数据成功!
+  
+ #### <2>、数据库的副本集
+ 
+ 建立三个副本集 
+ 第一步 建立文件夹
+ 
+ ![enter description here][4]
+
+
+  [1]: https://www.mongodb.com/download-center
+  [2]: ./images/mongodw.jpg "mongodw"
+  [3]: ./images/mongo%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93.png "mongo从数据库"
+  [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
