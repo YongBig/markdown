@@ -1206,4 +1206,4 @@ mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log
   [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
   [5]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225150.png "QQ截图20180204225150"
   
-  启动后的每个mongoDB都可以等路
+  启动后的每个mongoDB都可以登录
