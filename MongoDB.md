@@ -1186,10 +1186,9 @@ mongo 127.0.0.1:27018
  ![enter description here][4]
 
 
-  
+ 第二步： 
   语法
   
-
 ``` stylus
 mongod --port 1111 --dbpath f:/mongodbs/data/db1/ --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
 mongod --port 2222 --dbpath f:/mongodbs/data/db2/ --logpath f:/mongodbs/data/log/mongodb2.log --replSet aaaa --logappend
@@ -1200,10 +1199,19 @@ mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log
 ![enter description here][5]
 
 
+  第三步：
+  启动后的每个mongoDB都可以登录
+  登录 127.0.0.1:1111数据库
+  
+  ![enter description here][6]
+  
+
+
   [1]: https://www.mongodb.com/download-center
   [2]: ./images/mongodw.jpg "mongodw"
   [3]: ./images/mongo%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93.png "mongo从数据库"
   [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
   [5]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225150.png "QQ截图20180204225150"
+  [6]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225906_2.png "QQ截图20180204225906"
   
-  启动后的每个mongoDB都可以登录
+  
