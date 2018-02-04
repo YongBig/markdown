@@ -1221,10 +1221,22 @@ var replicaSet = {
 }
 rs.initiate(replicaSet)
 ```
+复制粘贴到1111数据库中
 
+![enter description here][7]
+ 第五步：
+ 插入数据到 1111数据库中
+ ![enter description here][8]
+  数据插入成功
+  
+  第六步：
+  查询副本集合的状态
+  
 
-  
-  
+``` javascript?linenums
+rs.status()//查看副本集合状态
+```
+
 
 
   [1]: https://www.mongodb.com/download-center
@@ -1233,3 +1245,5 @@ rs.initiate(replicaSet)
   [4]: ./images/QQ%E6%88%AA%E5%9B%BE20180204223543.png "QQ截图20180204223543"
   [5]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225150_1.png "QQ截图20180204225150"
   [6]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225906_2.png "QQ截图20180204225906"
+  [7]: ./images/QQ%E6%88%AA%E5%9B%BE20180204232240.png "QQ截图20180204232240"
+  [8]: ./images/QQ%E6%88%AA%E5%9B%BE20180204232452.png "QQ截图20180204232452"
