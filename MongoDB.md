@@ -1332,10 +1332,109 @@ rs.status()//查看副本集合状态
 第七步：
 关闭1111数据库
 
-连接 2222 数据库
+连接 2222 数据库，使用命令
 
+``` javascript?linenums
+rs.status()
+{
+        "set" : "aaaa",
+        "date" : ISODate("2018-02-04T15:43:53.977Z"),
+        "myState" : 1,
+        "term" : NumberLong(2),
+        "heartbeatIntervalMillis" : NumberLong(2000),
+        "optimes" : {
+                "lastCommittedOpTime" : {
+                        "ts" : Timestamp(1517759031, 1),
+                        "t" : NumberLong(2)
+                },
+                "appliedOpTime" : {
+                        "ts" : Timestamp(1517759031, 1),
+                        "t" : NumberLong(2)
+                },
+                "durableOpTime" : {
+                        "ts" : Timestamp(1517759031, 1),
+                        "t" : NumberLong(2)
+                }
+        },
+        "members" : [
+                {
+                        "_id" : 0,
+                        "name" : "127.0.0.1:1111",
+                        "health" : 0,//挂了
+                        "state" : 8,
+                        "stateStr" : "(not reachable/healthy)",
+                        "uptime" : 0,
+                        "optime" : {
+                                "ts" : Timestamp(0, 0),
+                                "t" : NumberLong(-1)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(0, 0),
+                                "t" : NumberLong(-1)
+                        },
+                        "optimeDate" : ISODate("1970-01-01T00:00:00Z"),
+                        "optimeDurableDate" : ISODate("1970-01-01T00:00:00Z"),
+                        "lastHeartbeat" : ISODate("2018-02-04T15:43:51.763Z"),
+                        "lastHeartbeatRecv" : ISODate("2018-02-04T15:37:18.814Z"
+),
+                        "pingMs" : NumberLong(0),
+                        "lastHeartbeatMessage" : "����Ŀ�����������ܾ����޷����ӡ�",
 
+                        "configVersion" : -1
+                },
+                {
+                        "_id" : 1,
+                        "name" : "127.0.0.1:2222",
+                        "health" : 1,
+                        "state" : 1,
+                        "stateStr" : "PRIMARY",//2222变成主库
+                        "uptime" : 3353,
+                        "optime" : {
+                                "ts" : Timestamp(1517759031, 1),
+                                "t" : NumberLong(2)
+                        },
+                        "optimeDate" : ISODate("2018-02-04T15:43:51Z"),
+                        "electionTime" : Timestamp(1517758648, 1),
+                        "electionDate" : ISODate("2018-02-04T15:37:28Z"),
+                        "configVersion" : 1,
+                        "self" : true
+                },
+                {
+                        "_id" : 2,
+                        "name" : "127.0.0.1:3333",
+                        "health" : 1,
+                        "state" : 2,
+                        "stateStr" : "SECONDARY",
+                        "uptime" : 1698,
+                        "optime" : {
+                                "ts" : Timestamp(1517759031, 1),
+                                "t" : NumberLong(2)
+                        },
+                        "optimeDurable" : {
+                                "ts" : Timestamp(1517759031, 1),
+                                "t" : NumberLong(2)
+                        },
+                        "optimeDate" : ISODate("2018-02-04T15:43:51Z"),
+                        "optimeDurableDate" : ISODate("2018-02-04T15:43:51Z"),
+                        "lastHeartbeat" : ISODate("2018-02-04T15:43:52.683Z"),
+                        "lastHeartbeatRecv" : ISODate("2018-02-04T15:43:53.975Z"
+),
+                        "pingMs" : NumberLong(0),
+                        "syncingTo" : "127.0.0.1:2222",
+                        "configVersion" : 1
+                }
+        ],
+        "ok" : 1
+}
 
+```
+==注意点1！！！！==
+==mongodb从数据库变为主数据库的选举方式，假如有10个数据库，主数据库挂了，那么一般会从最后一个选举，但存在网络问题等，则会择优选取前一个，以此类推 #800000==
+
+==注意点2！！！！==
+==新的主数据中我们输入命令show dbs 发现数据并没有同步之前的主数据库==
+
+![enter description here][9]
 
 
   [1]: https://www.mongodb.com/download-center
@@ -1346,3 +1445,4 @@ rs.status()//查看副本集合状态
   [6]: ./images/QQ%E6%88%AA%E5%9B%BE20180204225906_2.png "QQ截图20180204225906"
   [7]: ./images/QQ%E6%88%AA%E5%9B%BE20180204232240.png "QQ截图20180204232240"
   [8]: ./images/QQ%E6%88%AA%E5%9B%BE20180204232452.png "QQ截图20180204232452"
+  [9]: ./images/QQ%E6%88%AA%E5%9B%BE20180204235035.png "QQ截图20180204235035"
