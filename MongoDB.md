@@ -1295,7 +1295,7 @@ rs.status()//查看副本集合状态
                         },
                         "optimeDate" : ISODate("2018-02-04T15:30:45Z"),
                         "optimeDurableDate" : ISODate("2018-02-04T15:30:45Z"),
-                        "lastHeartbeat" : ISODate("2018-02-04T15:30:50.785Z"),
+                        "lastHeartbeat" : ISODate("2018-02-04T15:30:50.785Z"), //最后一次数据同步时间
                         "lastHeartbeatRecv" : ISODate("2018-02-04T15:30:50.215Z"
 ),
                         "pingMs" : NumberLong(0),
