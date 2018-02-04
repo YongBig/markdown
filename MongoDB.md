@@ -1236,6 +1236,8 @@ rs.initiate(replicaSet)
 ``` javascript?linenums
 rs.status()//查看副本集合状态
 ```
+返回
+
 
 
 
