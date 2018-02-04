@@ -1196,6 +1196,6 @@ mongo 127.0.0.1:27018
 
 ``` stylus
 mongod --port 1111 --dbpath f:/mongodbs/data/db1/ --logpath f:/mongodbs/data/log/mongodb1.log --replSet aaaa --logappend
-mongod --port 1111 --dbpath f:/mongodbs/data/db2/ --logpath f:/mongodbs/data/log/mongodb2.log --replSet aaaa --logappend
-mongod --port 1111 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log/mongodb3.log --replSet aaaa --logappend
+mongod --port 2222 --dbpath f:/mongodbs/data/db2/ --logpath f:/mongodbs/data/log/mongodb2.log --replSet aaaa --logappend
+mongod --port 3333 --dbpath f:/mongodbs/data/db3/ --logpath f:/mongodbs/data/log/mongodb3.log --replSet aaaa --logappend
 ```
