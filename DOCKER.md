@@ -69,5 +69,11 @@ grammar_cjkRuby: true
 
  ##### <span id="application_scenario">应用场景</span>
 
-> [官方文档](https://www.docker.com/resources/what-container) 
-> ![enter description here](./images/容器VS虚拟机.png)
+ 
+ > 1. 应用程序打包和发布
+ > 2. 应用程序隔离
+ > 3. 持续集成
+ > 4. 部署微服务
+ > 5. 快速搭建测试环境
+ > 6. 提供PaaS产品
+
