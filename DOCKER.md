@@ -22,7 +22,12 @@ grammar_cjkRuby: true
 	 - [基本组成](#basic_composition)
 	 - [容器 VS 虚拟机](#docker_vs_virtual)
 	 - [应用场景](#application_scenario)
-	
+2. [安装](#install)	
+	- [版本](#docker_version)
+	- [支持平台](#support_platform)
+	- [centos7 yum安装](#yum_install)
+	- [centos7 二进制安装](#source_code_install)
+
 	
 	
 #### <span id="summary">一 、 概述</span>
@@ -77,3 +82,44 @@ grammar_cjkRuby: true
  > 5. 快速搭建测试环境
  > 6. 提供PaaS产品
 
+
+
+
+#### <span id="install">二 、 安装</span>
+##### <span id="docker_version">版本</span>
+> - 社区版（Community Edition，CE）
+> - 企业版（Enterprise Edition，EE）
+##### <span id="support_platform">支持平台</span>
+> -  Linux（CentOS,Debian,Fedora,Oracle Linux,RHEL,SUSE和Ubuntu）
+> -  Mac
+> -  Windows( 新一代的window for docker 只支持 window10专业版 )
+##### <span id="yum_install">centos7 yum安装</span>
+> [官方文档](https://docs.docker.com) 
+``` shell
+	# 安装依赖包
+	yum install -y yum-utils device-mapper-persistent-data lvm2
+	# 添加Docker软件包源
+	yum-config-manager \
+	--add-repo \
+	https://download.docker.com/linux/centos/docker-ce.repo
+	# 安装Docker CE
+	yum install -y docker-ce
+	# 启动Docker服务并设置开机启动
+	systemctl start docker
+	systemctl enable docker
+```
+##### <span id="source_code_install">centos7 二进制安装</span>
+> [官方文档](https://docs.docker.com/install/linux/docker-ce/binaries/) 
+> 二进制安装条件：
+> - A 64-bit installation
+> - Version 3.10 or higher of the Linux kernel. The latest version of the kernel available for your platform is recommended.
+> - iptables version 1.4 or higher
+> - git version 1.7 or higher
+> - A ps executable, usually provided by procps or a similar package.
+> - XZ Utils 4.9 or higher
+> - A properly mounted cgroupfs hierarchy; a single, all-encompassing cgroup mount point is not sufficient. See Github issues [#2683](https://github.com/moby/moby/issues/2683), [#3485](https://github.com/moby/moby/issues/3485), [#4568](https://github.com/moby/moby/issues/4568)).
+``` shell
+	# 下载
+	wget -P /root  https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz 
+	
+```
