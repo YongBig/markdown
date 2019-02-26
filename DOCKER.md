@@ -120,6 +120,9 @@ grammar_cjkRuby: true
 > - A properly mounted cgroupfs hierarchy; a single, all-encompassing cgroup mount point is not sufficient. See Github issues [#2683](https://github.com/moby/moby/issues/2683), [#3485](https://github.com/moby/moby/issues/3485), [#4568](https://github.com/moby/moby/issues/4568)).
 ``` shell
 	# 下载
-	wget -P /root  https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz 
+	wget -P /root https://download.docker.com/linux/static/stable/x86_64/docker-18.06.3-ce.tgz
+	# 解压
+	tar xzvf /root/docker-18.06.3-ce.tgz
 	
+	cp docker/* /usr/bin/
 ```
